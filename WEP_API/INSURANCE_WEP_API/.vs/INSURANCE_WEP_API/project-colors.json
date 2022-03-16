@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "d1efcaf6-6576-42bf-bb52-5d0067edd262": {
+      "ProjectGuid": "d1efcaf6-6576-42bf-bb52-5d0067edd262",
+      "DisplayName": "INSURANCE_WEP_API",
+      "ColorIndex": 0
+    },
+    "4bb4fd53-b9d0-4651-859a-4c2b0a9e54e9": {
+      "ProjectGuid": "4bb4fd53-b9d0-4651-859a-4c2b0a9e54e9",
+      "DisplayName": "INSURANCE_WEP_API.DL",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

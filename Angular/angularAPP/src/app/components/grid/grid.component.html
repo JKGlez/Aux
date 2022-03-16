@@ -1,0 +1,46 @@
+<div class="container ">
+  <div class="d-flex justify-content-end my-2">
+    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" (click)="setOperationToAdd()">
+      Add new Plan
+    </a>
+  </div>
+
+ 
+
+  <table class="table table-bordered table-dark">
+    <thead>
+      <tr>
+        <th scope="col"> Plan Code</th>
+        <th scope="col">Plan name</th>
+        <th scope="col">Effective from date</th>
+        <th scope="col">Effective till date</th>
+        <th scope="col">Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let arrayPlan of arrayPlans" >
+        <th scope="row"><span class="link" (click)="openModal(arrayPlan.PlanCode)"  data-bs-toggle="modal" data-bs-target="#exampleModal">{{arrayPlan.PlanCode}}</span></th>
+        <td>{{arrayPlan.PlanName}}</td>
+        <td>{{arrayPlan.EffectiveFromDate| date}}</td>
+        <td>{{arrayPlan.EffectiveTillDate | date}}</td>
+        <td><button class="link" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" (click)="setOperationToEdit(arrayPlan)">Edit</button></td>
+      </tr>
+    </tbody>
+  </table>  
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+        <app-plan-form 
+        (event_onPlanAdded)="ngOnInit()"
+        [operation]="operation"
+        [plan]="planToEdit"
+        ></app-plan-form>
+    </div>
+  </div>
+</div>
+
+<app-modal
+[planCode]="planCode"
+></app-modal>
+
+
+

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="INSURANCE_DBModelStoreContainer" CdmEntityContainer="INSURANCE_DBEntities">
+    <EntitySetMapping Name="tbl_planDetails">
+      <EntityTypeMapping TypeName="INSURANCE_DBModel.tbl_planDetails">
+        <MappingFragment StoreEntitySet="tbl_planDetails">
+          <ScalarProperty Name="PlanDetailsId" ColumnName="PlanDetailsId" />
+          <ScalarProperty Name="PlanId" ColumnName="PlanId" />
+          <ScalarProperty Name="TermId" ColumnName="TermId" />
+          <ScalarProperty Name="TermValue" ColumnName="TermValue" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+          <ScalarProperty Name="ModifiedUser" ColumnName="ModifiedUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_plans">
+      <EntityTypeMapping TypeName="INSURANCE_DBModel.tbl_plans">
+        <MappingFragment StoreEntitySet="tbl_plans">
+          <ScalarProperty Name="PlanId" ColumnName="PlanId" />
+          <ScalarProperty Name="PlanCode" ColumnName="PlanCode" />
+          <ScalarProperty Name="PlanName" ColumnName="PlanName" />
+          <ScalarProperty Name="EffectiveFromDate" ColumnName="EffectiveFromDate" />
+          <ScalarProperty Name="EffectiveTillDate" ColumnName="EffectiveTillDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+          <ScalarProperty Name="ModifiedUser" ColumnName="ModifiedUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_refterms">
+      <EntityTypeMapping TypeName="INSURANCE_DBModel.tbl_refterms">
+        <MappingFragment StoreEntitySet="tbl_refterms">
+          <ScalarProperty Name="TermId" ColumnName="TermId" />
+          <ScalarProperty Name="TermDescription" ColumnName="TermDescription" />
+          <ScalarProperty Name="TermName" ColumnName="TermName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_users">
+      <EntityTypeMapping TypeName="INSURANCE_DBModel.tbl_users">
+        <MappingFragment StoreEntitySet="tbl_users">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,39 @@
+<div class="modal-body">
+    <table class="table table-bordered table-dark">
+        <thead>
+            <tr>
+                <th scope="col"> Term name</th>
+                <th scope="col">Term value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let planFeature of array_planFeaturesToAdd">
+                <td>{{planFeature.termName}}</td>
+                <td>{{planFeature.termValue}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="container">
+    <form [formGroup]="formPlanDetails">
+        <div class="row">
+            <div class="col-md-4">
+                <select
+                [class.is-invalid]="formPlanDetails.get('termId')?.touched && formPlanDetails.get('termId')?.invalid"
+                class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="termId" formControlName="termId">
+                    <option disabled selected>Term name</option>
+                    <option value="{{term.TermId}}" *ngFor="let term of terms">{{term.TermName}}</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <input [class.is-invalid]="formPlanDetails.get('termValue')?.touched && formPlanDetails.get('termValue')?.invalid"
+                    type="text" class="form-control" name="termValue" formControlName="termValue">
+            </div>
+            <div class="col-md-4">
+                <input type="submit" value="Add " class="btn btn-block  btn-success"
+                [disabled]="!formPlanDetails.valid" (click)="addPlanFeature()">
+            </div>
+        </div>
+    </form>
+
+</div>

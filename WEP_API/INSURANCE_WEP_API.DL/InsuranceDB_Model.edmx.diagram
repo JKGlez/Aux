@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ce5905e0eaab4a8e8f5ee21f1cbe4e81" Name="Diagram1">
+        <EntityTypeShape EntityType="INSURANCE_DBModel.tbl_planDetails" Width="1.5" PointX="5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="INSURANCE_DBModel.tbl_plans" Width="1.5" PointX="8" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="INSURANCE_DBModel.tbl_refterms" Width="1.5" PointX="7.875" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="INSURANCE_DBModel.tbl_users" Width="1.5" PointX="2.875" PointY="8.25" IsExpanded="true" />
+        <AssociationConnector Association="INSURANCE_DBModel.FK_tbl_planDetails_tbl_plans" ManuallyRouted="false" />
+        <AssociationConnector Association="INSURANCE_DBModel.FK_tbl_planDetails_tbl_terms" ManuallyRouted="false" />
+        <AssociationConnector Association="INSURANCE_DBModel.FK_tbl_planDetails_tbl_users_Created" ManuallyRouted="false" />
+        <AssociationConnector Association="INSURANCE_DBModel.FK_tbl_planDetails_tbl_users_Modified" ManuallyRouted="false" />
+        <AssociationConnector Association="INSURANCE_DBModel.FK_tbl_plans_tbl_users_Created" ManuallyRouted="false" />
+        <AssociationConnector Association="INSURANCE_DBModel.FK_tbl_plans_tbl_users_Modified" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="INSURANCE_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_planDetails">
+    <Key>
+      <PropertyRef Name="PlanDetailsId" />
+    </Key>
+    <Property Name="PlanDetailsId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PlanId" Type="bigint" Nullable="false" />
+    <Property Name="TermId" Type="bigint" Nullable="false" />
+    <Property Name="TermValue" Type="varchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedUser" Type="bigint" Nullable="false" />
+    <Property Name="ModifiedUser" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_plans">
+    <Key>
+      <PropertyRef Name="PlanId" />
+    </Key>
+    <Property Name="PlanId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PlanCode" Type="varchar" MaxLength="50" />
+    <Property Name="PlanName" Type="varchar" MaxLength="200" />
+    <Property Name="EffectiveFromDate" Type="datetime" Nullable="false" />
+    <Property Name="EffectiveTillDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedUser" Type="bigint" Nullable="false" />
+    <Property Name="ModifiedUser" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_refterms">
+    <Key>
+      <PropertyRef Name="TermId" />
+    </Key>
+    <Property Name="TermId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TermDescription" Type="varchar(max)" />
+    <Property Name="TermName" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tbl_planDetails_tbl_plans">
+    <End Role="tbl_plans" Type="Self.tbl_plans" Multiplicity="1" />
+    <End Role="tbl_planDetails" Type="Self.tbl_planDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_plans">
+        <PropertyRef Name="PlanId" />
+      </Principal>
+      <Dependent Role="tbl_planDetails">
+        <PropertyRef Name="PlanId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_planDetails_tbl_terms">
+    <End Role="tbl_refterms" Type="Self.tbl_refterms" Multiplicity="1" />
+    <End Role="tbl_planDetails" Type="Self.tbl_planDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_refterms">
+        <PropertyRef Name="TermId" />
+      </Principal>
+      <Dependent Role="tbl_planDetails">
+        <PropertyRef Name="TermId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_planDetails_tbl_users_Created">
+    <End Role="tbl_users" Type="Self.tbl_users" Multiplicity="1" />
+    <End Role="tbl_planDetails" Type="Self.tbl_planDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="tbl_planDetails">
+        <PropertyRef Name="CreatedUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_planDetails_tbl_users_Modified">
+    <End Role="tbl_users" Type="Self.tbl_users" Multiplicity="1" />
+    <End Role="tbl_planDetails" Type="Self.tbl_planDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="tbl_planDetails">
+        <PropertyRef Name="ModifiedUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_plans_tbl_users_Created">
+    <End Role="tbl_users" Type="Self.tbl_users" Multiplicity="1" />
+    <End Role="tbl_plans" Type="Self.tbl_plans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="tbl_plans">
+        <PropertyRef Name="CreatedUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_plans_tbl_users_Modified">
+    <End Role="tbl_users" Type="Self.tbl_users" Multiplicity="1" />
+    <End Role="tbl_plans" Type="Self.tbl_plans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="tbl_plans">
+        <PropertyRef Name="ModifiedUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="INSURANCE_DBModelStoreContainer">
+    <EntitySet Name="tbl_planDetails" EntityType="Self.tbl_planDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_plans" EntityType="Self.tbl_plans" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_refterms" EntityType="Self.tbl_refterms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_users" EntityType="Self.tbl_users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tbl_planDetails_tbl_plans" Association="Self.FK_tbl_planDetails_tbl_plans">
+      <End Role="tbl_plans" EntitySet="tbl_plans" />
+      <End Role="tbl_planDetails" EntitySet="tbl_planDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_planDetails_tbl_terms" Association="Self.FK_tbl_planDetails_tbl_terms">
+      <End Role="tbl_refterms" EntitySet="tbl_refterms" />
+      <End Role="tbl_planDetails" EntitySet="tbl_planDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_planDetails_tbl_users_Created" Association="Self.FK_tbl_planDetails_tbl_users_Created">
+      <End Role="tbl_users" EntitySet="tbl_users" />
+      <End Role="tbl_planDetails" EntitySet="tbl_planDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_planDetails_tbl_users_Modified" Association="Self.FK_tbl_planDetails_tbl_users_Modified">
+      <End Role="tbl_users" EntitySet="tbl_users" />
+      <End Role="tbl_planDetails" EntitySet="tbl_planDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_plans_tbl_users_Created" Association="Self.FK_tbl_plans_tbl_users_Created">
+      <End Role="tbl_users" EntitySet="tbl_users" />
+      <End Role="tbl_plans" EntitySet="tbl_plans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_plans_tbl_users_Modified" Association="Self.FK_tbl_plans_tbl_users_Modified">
+      <End Role="tbl_users" EntitySet="tbl_users" />
+      <End Role="tbl_plans" EntitySet="tbl_plans" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

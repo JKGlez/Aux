@@ -1,0 +1,78 @@
+<div class="container my-4">
+    <div *ngIf="operation == 'add'; else elseBlock">
+        <span>Add new Plan</span>
+    </div>
+    <ng-template #elseBlock>
+        <span>Edit plan</span>
+    </ng-template>
+
+    <form [formGroup]="planForm">
+        <div class="row">
+            <div class="col-md-6  justify-content-center my-4 px-3">
+                <div class="input-field first mb-4">
+                    Plan Code: <input
+                        [class.is-invalid]="planForm.get('planCode')?.touched && planForm.get('planCode')?.invalid"
+                        type="text" class="form-control validate" name="planCode" formControlName="planCode">
+                </div>
+                <div class="input-field last mb-4">
+                    Plan name: <input
+                        [class.is-invalid]="planForm.get('planName')?.touched && planForm.get('planName')?.invalid"
+                        type="text" class="form-control" name="planName" formControlName="planName">
+                </div>
+                <div class="input-field last mb-4">
+                    Effective From Date: <input
+                        [class.is-invalid]="planForm.get('effectiveFromDate')?.touched && planForm.get('effectiveFromDate')?.invalid"
+                        type="date" class="form-control" name="effectiveFromDate" formControlName="effectiveFromDate">
+                </div>
+
+            </div>
+            <div class="col-md-6  justify-content-center my-4 px-3">
+                <div class="input-field last mb-4">
+                    Effective Till Date: <input
+                        [class.is-invalid]="planForm.get('effectiveTillDate')?.touched && planForm.get('effectiveTillDate')?.invalid"
+                        type="date" class="form-control" name="effectiveTillDate" formControlName="effectiveTillDate">
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+    <a class="btn btn-primary d-block" data-bs-toggle="collapse" href="#collapsePlanDetailsForm" role="button"
+        aria-expanded="false" aria-controls="collapseExample">
+        <div class="d-flex justify-content-center">
+            <div>
+                <span class="text-center">plan details</span>
+            </div>
+            
+        </div>
+
+    </a>
+
+    <div class="collapse" id="collapsePlanDetailsForm">
+        <div class="card card-body">
+            <app-plan-details-form>
+
+            </app-plan-details-form>
+        </div>
+    </div>
+
+    <div class="my-5">
+        <div class="col d-flex align-items-center justify-content-end align-items-end">
+
+            <input type="submit" value="Export the form" type="button" class="btn btn-info" style="margin-left:20px ;" (click)="saveTheForm()">
+
+            <input type="submit" value="Import A Table" type="button" class="btn btn-info" style="margin-left:20px ;">
+
+            <input type="submit" value="Export Plans" type="button" class="btn btn-info" style="margin-left:20px ;" (click)="saveToExcel()"> 
+            <input type="submit" value="Save " class="btn btn-block  btn-success" style="margin-left:20px;" 
+            [disabled]="!planForm.valid" >
+
+                
+        </div>
+        
+
+    </div>
+
+
+
+</div>

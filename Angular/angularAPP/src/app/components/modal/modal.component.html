@@ -1,0 +1,28 @@
+    <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Plan code: {{planCode}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="clearCode()"></button>
+        </div>
+
+        <div class="modal-body">
+            <table class="table table-bordered table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col"> Term name</th>
+                    <th scope="col">Term value</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let term of terms">
+                    <td>{{term.TermName}}</td>
+                    <td>{{term.TermValue}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+      </div>
+    </div>
+  </div>

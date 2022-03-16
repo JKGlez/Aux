@@ -1,0 +1,5 @@
+PlanCode,PlanName,EffectiveFromDate,EffectiveTillDate,Actuary,Annuity,Claim,Coverage,DeathBenefit,Deductible,Exclusion,Lapse,Peril,Renewal
+A02,Policy_AllCounts,10-03-2022,10-03-2026,NA 1,NA 2,NA 3,NA 4,NA 5,NA 6,NA 7,NA 8,NA 9,NA 10
+A03,Policy_LifeInsurance,01-01-2030,01-01-2030,NA 1,NA 2,NA 3,NA 4,NA 5,NA 6,NA 7,NA 8,NA 9,NA 10
+A04,Policy_Hair,10-03-2022,10-10-2025,NA 1,NA 2,NA 3,NA 4,NA 5,NA 6,NA 7,NA 8,NA 9,NA 10
+A06,Policy_Abduction,01-05-2022,10-10-2025,NA 1,NA 2,NA 3,NA 4,NA 5,NA 6,NA 7,NA 8,NA 9,NA 10
